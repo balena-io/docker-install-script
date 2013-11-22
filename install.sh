@@ -7,17 +7,21 @@ pacman -Sy
 
 # Download packages
 TMP_DIR=$(mktemp -d)
-echo "Downloading package (1/4)"
-wget -P $TMP_DIR https://github.com/resin-io/linux-raspberrypi-aufs_friendly-PKGBUILD/releases/download/v3.10.19-1-ARCH/linux-headers-raspberrypi-aufs_friendly-3.10.19-1-armv6h.pkg.tar.xz
+PACKAGE=linux-headers-raspberrypi-aufs_friendly-3.10.19-1-armv6h.pkg.tar.xz
+echo "Downloading $PACKAGE"
+curl --progress-bar -L https://github.com/resin-io/linux-raspberrypi-aufs_friendly-PKGBUILD/releases/download/v3.10.19-1-ARCH/$PACKAGE > $TMP_DIR/$PACKAGE
 
-echo "Downloading package (2/4)"
-wget -P $TMP_DIR https://github.com/resin-io/linux-raspberrypi-aufs_friendly-PKGBUILD/releases/download/v3.10.19-1-ARCH/linux-raspberrypi-aufs_friendly-3.10.19-1-armv6h.pkg.tar.xz
+PACKAGE=linux-raspberrypi-aufs_friendly-3.10.19-1-armv6h.pkg.tar.xz
+echo "Downloading $PACKAGE"
+curl --progress-bar -L https://github.com/resin-io/linux-raspberrypi-aufs_friendly-PKGBUILD/releases/download/v3.10.19-1-ARCH/$PACKAGE > $TMP_DIR/$PACKAGE
 
-echo "Downloading package (3/4)"
-wget -P $TMP_DIR https://github.com/resin-io/aufs3-util-PKGBUILD/releases/download/v20130907-1/aufs3-util-20130907-1-armv6h.pkg.tar.xz
+PACKAGE=aufs3-util-20130907-1-armv6h.pkg.tar.xz
+echo "Downloading $PACKAGE"
+curl --progress-bar -L https://github.com/resin-io/aufs3-util-PKGBUILD/releases/download/v20130907-1/$PACKAGE > $TMP_DIR/$PACKAGE
 
-echo "Downloading package (4/4)"
-wget -P $TMP_DIR https://github.com/resin-io/lxc-docker-PKGBUILD/releases/download/v0.6.4-2/lxc-docker-0.6.4-2-armv6h.pkg.tar.xz
+PACKAGE=lxc-docker-0.6.4-2-armv6h.pkg.tar.xz
+echo "Downloading $PACKAGE"
+curl --progress-bar -L https://github.com/resin-io/lxc-docker-PKGBUILD/releases/download/v0.6.4-2/$PACKAGE > $TMP_DIR/$PACKAGE
 
 # Install packages
 yes | pacman -U $TMP_DIR/linux-headers-raspberrypi-aufs_friendly-3.10.19-1-armv6h.pkg.tar.xz \
