@@ -24,7 +24,7 @@ yes | pacman -U $TMP_DIR/linux-headers-raspberrypi-aufs_friendly-3.10.19-1-armv6
     $TMP_DIR/linux-raspberrypi-aufs_friendly-3.10.19-1-armv6h.pkg.tar.xz \
     $TMP_DIR/aufs3-util-20130907-1-armv6h.pkg.tar.xz
     
-# intall docker
+# install docker
 yes | pacman -Sy docker
 
 # Cleanup
